@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    meta: {layout: 'main'},
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/login',
@@ -20,7 +20,7 @@ const routes = [
     component: () => import('../views/Categories.vue')
   },
   {
-    path: '/detail-record',
+    path: '/detail/:id',
     name: 'DetailRecord',
     meta: {layout: 'main'},
     component: () => import('../views/DetailRecord.vue')
@@ -45,9 +45,9 @@ const routes = [
   },
   {
     path: '/record',
-    name: 'RecordPlan',
+    name: 'Record',
     meta: {layout: 'main'},
-    component: () => import('../views/RecordPlan.vue')
+    component: () => import('../views/Record.vue')
   },
   {
     path: '/register',
